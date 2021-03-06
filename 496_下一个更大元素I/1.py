@@ -22,8 +22,25 @@ class Solution:
             if not get_result:
                 result.append(-1)
         return result
+    def nextGreaterElement2(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        res = []
+        stack = []
+        for num in nums2:
+            stack.append(num)
 
-s = Solution()
-nums1 = [4,1,2]
-nums2 = [1,3,4,2]
-res = s.nextGreaterElement(nums1, nums2)
+        for num in nums1:
+            temp = []
+            isFond = False
+            max = -1
+            while len(stack) != 0 and not isFond:
+                top = stack.pop()
+                if top > num:
+                    max = top
+                elif top == num:
+                    isFond = True
+                temp.append(top)
+            res.append(max)
+            while len(temp) != 0:
+                stack.append(temp.pop())
+        return res
+        

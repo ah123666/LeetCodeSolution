@@ -1,5 +1,5 @@
 from typing import List
-
+# 使用两个栈的方式
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         stack = []

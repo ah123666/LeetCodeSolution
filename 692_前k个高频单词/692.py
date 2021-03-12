@@ -1,4 +1,5 @@
 import heapq
+from typing import List
 
 class Node:
     def __init__(self, key, value):
@@ -6,8 +7,10 @@ class Node:
         self.value = value
 
     def __lt__(self, nxt):
-        return self.key > nxt.key if self.value == nxt.value\
-            else self.value < nxt.value
+        if self.value == nxt.value:
+            return self.key > nxt.key 
+        else:
+            return self.value < nxt.value
 
 
 class Solution:
@@ -31,3 +34,8 @@ class Solution:
         res.reverse()
 
         return res
+
+if __name__ == '__main__':
+    solu = Solution()
+    words = ["i", "love", "leetcode", "i", "love", "coding"]
+    print(solu.topKFrequent(words, 3))

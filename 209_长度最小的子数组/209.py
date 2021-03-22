@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         if nums is None or len(nums) == 0:
@@ -19,13 +22,13 @@ class Solution:
         else:
             return res
 
-    def minSubArrayLen2(self, target: int, nums: List[int]) -> int: 
+    def minSubArrayLen2(self, target: int, nums: List[int]) -> int:
         if nums is None or len(nums) == 0:
-            return 0 
+            return 0
         size = 1
         while size <= len(nums):
             for i in range(len(nums) - size):
-                total = sum(nums[i : i+size])
+                total = sum(nums[i: i + size])
                 if total >= target:
                     return size
             size += 1

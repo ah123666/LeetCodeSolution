@@ -16,3 +16,11 @@ class Solution:
             hnext.next = dnext
 
         return dummy.next
+    def reverseList_digui(self, head: ListNode) -> ListNode:
+        if head is None or head.next is None:
+            return head
+
+        p = self.reverseList_digui(head.next)
+        head.next.next = head
+        head.next = None
+        return p

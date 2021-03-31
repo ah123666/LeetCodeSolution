@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def reverseString(self, s: List[str]) -> None:
         """
@@ -12,7 +15,7 @@ class Solution:
     def recursion(self, s, left, right):
         if left >= right:
             return
-        return self.recursion(s, left+1, right-1)
+        return self.recursion(s, left + 1, right - 1)
         temp = s[left]
         s[left] = s[right]
         s[right] = temp
